@@ -1,15 +1,43 @@
+body {
+  background-color: aliceblue;
+  font-family: sans-serif;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: greenyellow;
 }
+.Search {
+  padding: 12px;
+  border-radius: 15px;
+  background: aliceblue;
+  border: 1px black solid;
+}
 .addJob {
   padding: 10px;
   margin: 5px;
   border-radius: 15px;
   cursor: pointer;
+  background: aliceblue;
+  border: 1px black solid;
 }
 .icon {
   padding-left: 10px;
+}
+.job-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(184, 184, 184);
+  margin: 20px;
+  padding: 15px;
+  border-radius: 30px;
+  width: 350px;
 }
