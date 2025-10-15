@@ -33,14 +33,18 @@ body {
   gap: 20px;
 }
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: rgb(184, 184, 184);
   margin: 20px;
   padding: 15px;
   border-radius: 30px;
   width: 350px;
+}
+.remove-job {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
 }
 .modal-overlay {
   position: fixed;

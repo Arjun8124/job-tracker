@@ -10,7 +10,16 @@ function App() {
   const [jobs, setJobs] = useState([]);
 
   function onAddJob(newJob) {
-    setJobs([...jobs, newJob]);
+    const jobWithId = {
+      ...newJob,
+      id: Date.now(),
+    };
+    setJobs([...jobs, jobWithId]);
+  }
+
+  function onRemoveJob(id) {
+    const afterRemovedJobs = jobs.filter((job) => job.id !== id);
+    setJobs(afterRemovedJobs);
   }
 
   function handleOpen() {
@@ -30,7 +39,7 @@ function App() {
   return (
     <>
       <Nav handleOpen={handleOpen} setSearch={setSearch} />
-      <JobSection jobs={filteredJobs} />
+      <JobSection jobs={filteredJobs} onRemoveJob={onRemoveJob} />
       {modal ? <Form onAddJob={onAddJob} handleClose={handleClose} /> : <></>}
     </>
   );

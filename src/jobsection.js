@@ -1,7 +1,7 @@
 import "./App.css";
 import Job from "./job";
 
-export default function JobSection({ jobs }) {
+export default function JobSection({ jobs, onRemoveJob }) {
   return (
     <div className="job-container">
       {jobs.length === 0 ? (
@@ -9,9 +9,12 @@ export default function JobSection({ jobs }) {
       ) : (
         jobs.map((job) => (
           <Job
+            id={job.id}
+            key={job.id}
             position={job.position}
             company={job.company}
             time={job.duration}
+            onRemoveJob={onRemoveJob}
           />
         ))
       )}

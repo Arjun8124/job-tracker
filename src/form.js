@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function Form({ onAddJob, handleClose }) {
   const [formData, setFormData] = useState({
+    id: Date.now(),
     position: "",
     company: "",
     duration: "",
