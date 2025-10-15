@@ -27,7 +27,8 @@ body {
 }
 .job-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -40,4 +41,39 @@ body {
   padding: 15px;
   border-radius: 30px;
   width: 350px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input {
+  padding: 20px;
+  border-radius: 10px;
+}
+.Modal-buttons button {
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
 }

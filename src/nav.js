@@ -1,5 +1,5 @@
 import "./App.css";
-export default function Nav() {
+export default function Nav({ handleOpen }) {
   return (
     <div className="navbar">
       <h2 className="icon">💼Job Tracker🏢</h2>
@@ -9,7 +9,9 @@ export default function Nav() {
           type="text"
           placeholder="Search For Jobs..."
         />
-        <button className="addJob">➕Add New Job</button>
+        <button className="addJob" type="button" onClick={handleOpen}>
+          ➕Add New Job
+        </button>
       </div>
     </div>
   );
