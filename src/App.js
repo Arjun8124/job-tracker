@@ -2,12 +2,19 @@ import "./App.css";
 import Nav from "./nav";
 import JobSection from "./jobsection";
 import Form from "./form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState(() => {
+    const saved = localStorage.getItem("jobs");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("jobs", JSON.stringify(jobs));
+  }, [jobs]);
 
   function onAddJob(newJob) {
     const jobWithId = {
