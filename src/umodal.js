@@ -17,7 +17,7 @@ export default function UModal({ setUpdateModal, onUpdateJob, currentJob }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <form onSubmit={handleUpdateSubmit}>
+        <form onSubmit={handleUpdateSubmit} className="form">
           <input
             type="text"
             placeholder="Update the position..."
@@ -36,7 +36,7 @@ export default function UModal({ setUpdateModal, onUpdateJob, currentJob }) {
             value={data.duration}
             onChange={(e) => setData({ ...data, duration: e.target.value })}
           />
-          <div>
+          <div className="Modal-buttons">
             <button type="submit">Update</button>
             <button type="button" onClick={() => setUpdateModal(false)}>
               Close
