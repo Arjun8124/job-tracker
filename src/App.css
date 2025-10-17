@@ -32,12 +32,21 @@ body {
   flex-wrap: wrap;
   gap: 20px;
 }
+.card h1 {
+  text-align: center;
+}
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(184, 184, 184);
   margin: 20px;
   padding: 15px;
   border-radius: 30px;
   width: 350px;
+  min-height: 300px;
+  cursor: pointer;
 }
 .remove-job {
   padding: 10px;
@@ -74,6 +83,7 @@ body {
 .form input {
   padding: 20px;
   border-radius: 10px;
+  font-size: large;
 }
 .Modal-buttons button {
   padding: 15px;
