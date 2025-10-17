@@ -1,7 +1,13 @@
 import "./App.css";
 import Job from "./job";
 
-export default function JobSection({ jobs, onRemoveJob }) {
+export default function JobSection({
+  jobs,
+  onRemoveJob,
+  setUpdateModal,
+  update,
+  getId,
+}) {
   return (
     <div className="job-container">
       {jobs.length === 0 ? (
@@ -15,6 +21,9 @@ export default function JobSection({ jobs, onRemoveJob }) {
             company={job.company}
             time={job.duration}
             onRemoveJob={onRemoveJob}
+            setUpdateModal={setUpdateModal}
+            update={update}
+            getId={getId}
           />
         ))
       )}
