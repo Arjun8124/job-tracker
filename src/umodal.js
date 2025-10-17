@@ -37,8 +37,14 @@ export default function UModal({ setUpdateModal, onUpdateJob, currentJob }) {
             onChange={(e) => setData({ ...data, duration: e.target.value })}
           />
           <div className="Modal-buttons">
-            <button type="submit">Update</button>
-            <button type="button" onClick={() => setUpdateModal(false)}>
+            <button type="submit" className="yes">
+              Update
+            </button>
+            <button
+              type="button"
+              className="no"
+              onClick={() => setUpdateModal(false)}
+            >
               Close
             </button>
           </div>

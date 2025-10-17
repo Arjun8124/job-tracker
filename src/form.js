@@ -43,8 +43,12 @@ export default function Form({ onAddJob, handleClose }) {
             }
           />
           <div className="Modal-buttons">
-            <button type="submit">Add Job</button>
-            <button onClick={handleClose}>Close</button>
+            <button type="submit" className="yes">
+              Add Job
+            </button>
+            <button onClick={handleClose} className="no">
+              Close
+            </button>
           </div>
         </form>
       </div>

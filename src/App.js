@@ -31,6 +31,7 @@ function App() {
     const afterRemovedJobs = jobs.filter((job) => job.id !== id);
     setJobs(afterRemovedJobs);
   }
+
   function onUpdateJob(data) {
     setJobs(
       jobs.map((job) =>

@@ -1,93 +1,298 @@
-body {
-  background-color: aliceblue;
-  font-family: sans-serif;
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #10b981;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
+
+body {
+  background-color: var(--bg);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+}
+
 .navbar {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  padding: 1.25rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: greenyellow;
 }
-.Search {
-  padding: 12px;
-  border-radius: 15px;
-  background: aliceblue;
-  border: 1px black solid;
-}
-.addJob {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 15px;
-  cursor: pointer;
-  background: aliceblue;
-  border: 1px black solid;
-}
+
 .icon {
-  padding-left: 10px;
-}
-.job-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.card h1 {
-  text-align: center;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(184, 184, 184);
-  margin: 20px;
-  padding: 15px;
-  border-radius: 30px;
-  width: 350px;
-  min-height: 300px;
-  cursor: pointer;
-}
-.remove-job {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: red;
   color: white;
-  cursor: pointer;
+  margin: 0;
+  font-size: 1.5rem;
 }
+
+.right-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Search {
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.Search::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.Search:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.addJob {
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.addJob:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  background: var(--accent);
+  color: white;
+}
+
+.job-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card h1 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.remove-job {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.remove-job:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .modal-content {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 16px;
   max-width: 500px;
-  width: 90%;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  animation: modalSlide 0.3s ease;
 }
+
+@keyframes modalSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .form input {
-  padding: 20px;
-  border-radius: 10px;
-  font-size: large;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.Modal-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .Modal-buttons button {
-  padding: 15px;
-  margin: 5px;
-  border-radius: 10px;
-  cursor: pointer;
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.yes {
+  background-color: var(--accent);
+  color: white;
+}
+
+.yes:hover {
+  background-color: #059669;
+}
+
+.no {
+  background-color: var(--primary);
+  color: white;
+}
+
+.no:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .right-nav {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .Search {
+    width: 100%;
+  }
+
+  .addJob {
+    width: 100%;
+  }
+
+  .job-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .card h1 {
+    font-size: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card h3 {
+    font-size: 0.875rem;
+  }
+
+  .Modal-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Make form inputs more responsive */
+.form input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Adjust container max-width for different screen sizes */
+@media screen and (max-width: 1200px) {
+  .job-container {
+    max-width: 1000px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .job-container {
+    max-width: 800px;
+  }
 }
